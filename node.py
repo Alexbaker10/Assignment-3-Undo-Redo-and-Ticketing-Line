@@ -1,3 +1,4 @@
-# Implement your Node class here
 class Node:
-    pass # delete this line
+  def __init__(self, user):
+    self.user = user
+    self.next = None
