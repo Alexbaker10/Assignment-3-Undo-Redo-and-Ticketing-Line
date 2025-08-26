@@ -11,7 +11,7 @@ class Stack:
       new_node.next = self.top
       self.top = new_node
 
-    def pop():
+    def pop(self):
       if not self.top:
         return None
       removed_node = self.top
