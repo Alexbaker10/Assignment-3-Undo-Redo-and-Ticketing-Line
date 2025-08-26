@@ -4,45 +4,47 @@ from node import Node
 # Implement your Queue class here
 class Queue:
     def __init__(self):
-    self.front = None
-    self.rear = None
+        self.front = None
+        self.rear = None
 
     def enqueue(self, value):
-      new_node = Node(user)
-      if not self.front:
-        self.front = new_node
-        self.rear = new_node
-      else:
-        self.rear.next = new_node
-        self.rear = new_node
+        new_node = Node(value)
+        if not self.front:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
 
     def dequeue(self):
-      if not self.front:
-        return None
-      removed_node = self.front
-      self.front = self.front.next
-      if not self.front:
-        self.rear = None 
-      return removed_node.value
+        if not self.front:
+            return None
+        removed_node = self.front
+        self.front = self.front.next
+        if not self.front:
+            self.rear = None 
+        return removed_node.value
 
     def peek(self):
-      if self.front:
-        return self.front.value
-      else:
-        return None
+        if self.front:
+            return self.front.value
+        else:
+            return None
 	
     def print_queue(self):
-      current = self.front
-      if not current:
-        print("Queue is empty")
-        return
-      while current:
-        print(f"- {current.value}")
-        current = current.next 
+        current = self.front
+        if not current:
+            print("Queue is empty")
+            return
+        print("Front\n---")
+        while current:
+            print(current.value)
+            current = current.next 
+        print("---\nBack")
+    
     
 def run_help_desk():
-    # Create an instance of the Queue class
-    
+    queue = Queue()
 
     while True:
         print("\n--- Help Desk Ticketing System ---")
@@ -55,23 +57,28 @@ def run_help_desk():
 
         if choice == "1":
             name = input("Enter customer name: ")
-            # Add the customer to the queue
-            
-            
-            print(f"{name} added to the queue.")
+            queue.enqueue(name)
+            print(name, " added to the queue.")
+
         elif choice == "2":
-            # Help the next customer in the queue and return message that they were helped
-            pass # delete this line
+            customer = queue.dequeue()
+            if customer:
+                print("Helped customer: ", customer)
+            else:
+                print("No customers are waiting.")
 
 
         elif choice == "3":
-            # Peek at the next customer in the queue and return their name
-            pass # delete this line
+            customer = queue.peek()
+            if customer:
+                print("Next customer is: ", customer)
+            else:
+                print("No customers are waiting.")
 
 
         elif choice == "4":
-            # Print all customers in the queue
             print("\nWaiting customers:")
+            queue.print_queue()
             
 
         elif choice == "5":
