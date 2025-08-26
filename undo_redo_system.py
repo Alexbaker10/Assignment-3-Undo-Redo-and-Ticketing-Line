@@ -7,7 +7,7 @@ class Stack:
     self.top = None
 	
     def push(self, value):
-      new_node = Node(value)
+      new_node = Node(user)
       new_node.next = self.top
       self.top = new_node
 
@@ -24,15 +24,15 @@ class Stack:
     else:
       return None
 	
-  def print_stack(self):
-    current = self.top
-    if not current:
-      print("Stack is empty")
-      return
-    while current:
-      print(f"- {current.value}")
-      current = current.next
-    pass
+    def print_stack(self):
+      current = self.top
+      if not current:
+        print("Stack is empty")
+        return
+      while current:
+        print(f"- {current.value}")
+        current = current.next
+    
   
 
 def run_undo_redo():
