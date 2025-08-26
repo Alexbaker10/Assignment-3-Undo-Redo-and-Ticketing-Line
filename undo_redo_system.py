@@ -7,32 +7,33 @@ class Stack:
     self.top = None
 	
     def push(self, value):
-      new_node = Node(value)
-      new_node.next = self.top
-      self.top = new_node
+        new_node = Node(value)
+        new_node.next = self.top
+        self.top = new_node
 
     def pop(self):
-      if not self.top:
-        return None
-      removed_node = self.top
-      self.top = self.top.next
-      return removed_node.value	
+        if not self.top:
+            return None
+        removed_node = self.top
+        self.top = self.top.next
+        return removed_node.value	
 
     def peek(self):
     if self.top:
-      return self.top.value
+        return self.top.value
     else:
-      return None
+        return None
 	
     def print_stack(self):
-      current = self.top
-      if not current:
-        print("Stack is empty")
-        return
-      while current:
-        print(f"- {current.value}")
-        current = current.next
-    
+        current = self.top
+        if not current:
+            print("Stack is empty")
+            return
+	    print("Top\n---")
+        while current:
+			print(current.value)
+        	current = current.next
+		print("---\nBottom")
   
 
 def run_undo_redo():
