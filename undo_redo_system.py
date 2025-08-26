@@ -7,7 +7,7 @@ class Stack:
     self.top = None
 	
     def push(self, value):
-      new_node = Node(user)
+      new_node = Node(value)
       new_node.next = self.top
       self.top = new_node
 
@@ -51,30 +51,36 @@ def run_undo_redo():
 
         if choice == "1":
             action = input("Describe the action (e.g., Insert 'a'): ")
-            # Push the action onto the undo stack and clear the redo stack
-
-
-            print(f"Action performed: {action}")
+            undo_stack.push(action)
+            redo_stack.clear()
+            print("Action performed:", action)
+			
         elif choice == "2":
-            # Pop an action from the undo stack and push it onto the redo stack
-            pass # delete this line
+            undone_action = undo_stack.pop()
+            if undone_action:
+                redo_stack.push(undone_action)
+                print("Undid action:", undone_action)
+            else:
+                print("There is no action to undo.")
             
 
         elif choice == "3":
-            # Pop an action from the redo stack and push it onto the undo stack
-            pass # delete this line
+			redone_action = redo_stack.pop()
+            if redone_action:
+           		undo_stack.push(redone_action)
+                print("Redid action:", redone_action)
+            else:
+                print("There is no action to redo.")
 
 
         elif choice == "4":
-            # Print the undo stack
             print("\nUndo Stack:")
-            
+            undo_stack.print_stack()
             
 
         elif choice == "5":
-            # Print the redo stack
             print("\nRedo Stack:")
-            
+			redo_stack.print_stack()
             
             
         elif choice == "6":
