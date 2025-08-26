@@ -4,7 +4,7 @@ from node import Node
 # Implement your Stack class here
 class Stack:
     def __init__(self):
-    self.top = None
+    	self.top = None
 	
     def push(self, value):
         new_node = Node(value)
@@ -19,10 +19,10 @@ class Stack:
         return removed_node.value	
 
     def peek(self):
-    if self.top:
-        return self.top.value
-    else:
-        return None
+    	if self.top:
+        	return self.top.value
+    	else:
+        	return None
 	
     def print_stack(self):
         current = self.top
@@ -34,7 +34,9 @@ class Stack:
 			print(current.value)
         	current = current.next
 		print("---\nBottom")
-  
+
+	def clear(self):
+    	self.top = None  
 
 def run_undo_redo():
     undo_stack = Stack() 
