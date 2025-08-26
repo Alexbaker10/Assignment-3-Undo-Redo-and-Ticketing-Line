@@ -36,9 +36,9 @@ class Stack:
   
 
 def run_undo_redo():
-    # Create instances of the Stack class for undo and redo
+    undo_stack = Stack() 
+	redo_stack = Stack()
     
-
     while True:
         print("\n--- Undo/Redo Manager ---")
         print("1. Perform action")
